@@ -3,3 +3,91 @@ controllers:
     path: ../src/Controller/
     namespace: App\Controller
   type: attribute
+
+
+home:
+  path: /home
+  controller: App\Controller\HomeController::index
+
+
+
+user_register:
+  path: /register
+  controller: App\Controller\RegistrationController::register
+
+user_login:
+  path: /login
+  controller: App\Controller\SecurityController::login
+
+user_logout:
+  path: profile/logout
+  controller: App\Controller\SecurityController::logout
+
+
+
+admin_user_list:
+  path: /admin/user
+  controller: App\Controller\AdminUserController::index
+  methods: [GET]
+
+admin_user_show:
+  path: /admin/user/{id}
+  controller: App\Controller\AdminUserController::show
+  methods: [GET]
+
+admin_user_edit:
+  path: admin/user/{id}/edit
+  controller: App\Controller\ProfileController::index
+  methods: [GET,POST]
+
+admin_user_create:
+  path: admin/user/create
+  controller: App\Controller\ProfileController::create
+  methods: GET, POST
+
+admin_user_delete:
+  path: admin/user/{id}
+  controller: App\Controller\ProfileController::delete
+  methods: DELETE
+
+user_profile:
+  path: profile/{id}
+  controller: App\Controller\ProfileController::show
+  methods: GET
+
+user_edit_profile:
+  path: profile/{id}
+  controller: App\Controller\ProfileController::edit
+  methods: PUT
+
+user_delete_profile:
+  path: profile/{id}
+  controller: App\Controller\ProfileController::delete
+  methods: DELETE
+
+
+
+post:
+  path: /post
+  controller: App\Controller\ProfilePostController::index
+  methods: [GET]
+
+post_create:
+  path: /profile/post/create
+  controller: App\Controller\ProfilePostController::new
+  methods: [GET, POST]
+
+post_specific:
+  path: /post/{id}
+  controller: App\Controller\ProfilePostController::show
+  methods: [GET]
+
+post_edit:
+  path: /profile/post/{id}/edit
+  controller: App\Controller\ProfilePostController::edit
+  methods: [GET, POST]
+
+post_delete:
+  path: /profile/post/{id}
+  controller: App\Controller\ProfilePostController::delete
+  methods: [POST]
